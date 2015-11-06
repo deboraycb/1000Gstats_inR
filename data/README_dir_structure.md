@@ -3,7 +3,7 @@
 *Para mais detalhes de como os scripts mencionados abaixo foram 
 rodados, ver `../README_commands.md`*
 
-##`phase3_chr/`
+- `phase3_chr/`
 
   Arquivos VCF zipados (.vcf.gz) para cada um dos **N** cromossomos,
   mais o arquivo índice (.vcf.tbi) equivalente. Foram baixados do
@@ -11,7 +11,7 @@ rodados, ver `../README_commands.md`*
   - `ALL.chrN.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz`
   - `ALL.chrN.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz.tbi`
 
-##`phase3_pops/`
+- `phase3_pops/`
 
   Arquivos com a identificação (ID) dos indivíduos em cada
   população.
