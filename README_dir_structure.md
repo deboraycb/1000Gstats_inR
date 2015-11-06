@@ -12,20 +12,20 @@ seguintes diretórios e arquivos:
 
 - `README_commands.md`
 
-Lista de comandos usados para download dos dados brutos, cálculo de
+  Lista de comandos usados para download dos dados brutos, cálculo de
   estatísticas sumárias e criação de um objeto em R (dataframe)
   contendo estatísticas populacionais por SNP.
 
 - `data/`
 
-Dados brutos ou parcialmente processados
+  Dados brutos ou parcialmente processados
 
 - `scripts/`
 
-Scripts usados para gerar os dados parcialmente processados em
+  Scripts usados para gerar os dados parcialmente processados em
   `data/`, os objetos de R em `r_objects` e outras análises
 
-- `r_objects`
+- `r_objects/`
 
-workspaces de R com o mesmo nome dos scripts que os geraram
-(scripts em `/raid/genevol/1kg/phase3/scripts/`)
+  Workspaces de R com o mesmo nome dos scripts que os geraram
+  (scripts em `/raid/genevol/1kg/phase3/scripts/`)
