@@ -15,13 +15,13 @@
   2. Download sample list and create one list of samples per population  
     `Rscript /raid/genevol/1kg/phase3/scripts/phase3_pops.R`
 
-2. Calculate global F~ST~
+2. Calculate global F<sub>ST</sub>
   
   [VCFtools](https://vcftools.github.io/index.html) v0.1.14 code
   [`variant_file_output.cpp`](https://github.com/vcftools/vcftools/blob/master/src/cpp/variant_file_output.cpp)
   so that the output of --weir-fst-pop command includes the numerator
-  and denominator of Weir and Cockerham's F~ST~ estimator, allowing
-  to calculate F~ST~ over multiple sites appropriately ("ratio of
+  and denominator of Weir and Cockerham's F<sub>ST</sub> estimator, allowing
+  to calculate F<sub>ST</sub> over multiple sites appropriately ("ratio of
   averages")
 
   line 3628 of [`variant_file_output.cpp`](https://github.com/vcftools/vcftools/blob/master/src/cpp/variant_file_output.cpp):
@@ -34,7 +34,7 @@
 
   *Credit: [Travis Collier](http://sourceforge.net/p/vcftools/mailman/message/33927517/)*
 
-  1. F~ST~ among all populations
+  1. F<sub>ST</sub> among all populations
     
     ```bash
     cd /raid/genevol/1kg/phase3/data/
