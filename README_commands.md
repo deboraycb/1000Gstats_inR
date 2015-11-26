@@ -34,9 +34,7 @@
 
   *Credit: [Travis Collier](http://sourceforge.net/p/vcftools/mailman/message/33927517/)*
 
-  1. F<sub>ST</sub>
-    
-    1. among all populations
+  1. F<sub>ST</sub> among all populations
     
     ```bash
     cd /raid/genevol/1kg/phase3/data/
@@ -81,7 +79,7 @@
     data/chrN/overall.log
     ```
     
-    2. among all populations, excluding admixed
+  2. among all populations, excluding admixed
 
     - populations excluded:
         - all populations from AMR superpopulation group: MXL, PUR, CLM, PEL
@@ -124,7 +122,7 @@
     data/chrN/overall_noadm.log
     ```
     
-    3. Pairwise
+  3. Pairwise
 
     ```bash
     for i in {1..22};
