@@ -1,21 +1,35 @@
-1. Download data
+1. Download dos dados
 
-  Enter data directory
+  Entrar no diretório onde ficarão os dados brutos
 
   `cd /raid/genevol/1kg/phase3/data/phase3_chr`
 
-  1. Download VCF files
+  1. Download dos arquivos VCF
 
     ```bash
     for i in {1..22};
     do wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20130502/ALL.chr$i.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz*;
     done
     ```
+
+    **OUTPUT:**
+
+    ```
+    data/phase3_chr/ALL.chrN[...].vcf.gz
+    data/phase3_chr/ALL.chrN[...].vcf.gz.tbi
+    ```
   
-  2. Download sample list and create one list of samples per population  
+  2. Download da lista de amostras do 1000G e 
+  criação de uma lista de amostrar para cada população
     `Rscript /raid/genevol/1kg/phase3/scripts/phase3_pops.R`
 
-2. Calculate global F<sub>ST</sub>
+    **OUTPUT:**
+
+    ```
+    data/phase3_pops/popPOPNAME.txt
+    ```
+
+2. Calcular F<sub>ST</sub> global
   
   [VCFtools](https://vcftools.github.io/index.html) v0.1.14 code
   [`variant_file_output.cpp`](https://github.com/vcftools/vcftools/blob/master/src/cpp/variant_file_output.cpp)
@@ -34,7 +48,7 @@
 
   *Credit: [Travis Collier](http://sourceforge.net/p/vcftools/mailman/message/33927517/)*
 
-  1. F<sub>ST</sub> among all populations
+  1. F<sub>ST</sub> entre todas as populções
     
     ```bash
     cd /raid/genevol/1kg/phase3/data/
@@ -79,11 +93,12 @@
     data/chrN/overall.log
     ```
     
-  2. among all populations, excluding admixed
+  2. Entre todas as populações, excluindo miscigenadas
 
-    - populations excluded:
-        - all populations from AMR superpopulation group: MXL, PUR, CLM, PEL
-        - based on page 5 of the supplementary info: ASW, ACB
+    - populações excluídas:
+        - todas as do grupo AMR: MXL, PUR, CLM, PEL
+        - outras miscigenadas segundo página 5 do material
+        suplementar do 1000G: ASW, ACB
     
     ```bash
     cd /raid/genevol/1kg/phase3/data/
@@ -122,7 +137,11 @@
     data/chrN/overall_noadm.log
     ```
     
-  3. Pairwise
+3. F<sub>ST</sub> par-a-par
+
+    *ATENÇÃO: o último número dessa linha de comando é o número
+    de processos que vão rodar em paralelo. Verificar a
+    disponibilidade do servidor antes de rodar 50 processos!*
 
     ```bash
     for i in {1..22};
@@ -130,3 +149,29 @@
     done
     ```
 
+    **OUTPUT:**
+
+    ```
+    data/chrN/POP1-POP2.weir.fst
+    data/chrN/POP1-POP2.log
+    ```
+
+4. Frequencias por população
+
+    *ATENÇÃO: o último número dessa linha de comando é o número
+    de processos que vão rodar em paralelo. Verificar a
+    disponibilidade do servidor antes de rodar 50 processos!*
+
+    ```bash
+    cd /raid/genevol/1kg/phase3/
+    ./scripts/run_counts.py data/phase3_chr/ data/phase3_pops/ data/ 50
+    ```
+
+    **OUTPUT:**
+
+    ```
+    data/chrN/POP.frq.count
+    data/chrN/POP.log
+    ```
+
+5. Anotação
