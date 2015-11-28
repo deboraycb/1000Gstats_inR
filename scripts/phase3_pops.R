@@ -17,7 +17,7 @@ if (! file.exists("phase1_integrated_calls.20101123.ALL.panel")) {
                   destfile = "integrated_call_samples_v3.20130502.ALL.panel")
 }
 
-panel <- read.table("integrated_call_samples_v3.20130502.ALL.panel", header = F,
+panel <- read.table("integrated_call_samples_v3.20130502.ALL.panel", header = T,
                     fill = T, col.names = c("IND", "POP", "CONT", "GENDER"))
 
 for (pop in unique(panel$POP)){
