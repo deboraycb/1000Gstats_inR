@@ -7,7 +7,7 @@ import subprocess
 import re
 
 if len(sys.argv) != 5:
-    print '''Use ./run_vcf.py GENOME_DIR POPULATIONS_DIR OUTPUT_DIR NUMBER_OF_PROCESSES'''
+    print '''Use ./run_counts.py GENOME_DIR POPULATIONS_DIR OUTPUT_DIR NUMBER_OF_PROCESSES'''
     sys.exit()
 
 genome_dir = sys.argv[1]
@@ -33,7 +33,7 @@ chs ={}
 ch_files = filter(lambda f: f[-2:] == 'gz', ch_files)
 
 for cfile in ch_files:
-    cname = re.match("ALL.(.*).phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz", cfile).group(1)
+    cname = re.match("ALL.(.*).phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz", cfile).group(1)
     chs[cname] = genome_dir + "/" + cfile
 
 procs = []

@@ -33,7 +33,7 @@ for i, pop1 in enumerate(pops.keys()[:-1]):
     for pop2 in pops.keys()[i+1:]:
         out_file = "{}-{}".format(pop1, pop2)
  	out_path = output_dir + "/" + out_file
-        vcf_command = ["vcftools",
+        vcf_command = ["/home/debora/vcftools/src/cpp/vcftools",
                        "--gzvcf",
                        genome,
                        "--weir-fst-pop",
