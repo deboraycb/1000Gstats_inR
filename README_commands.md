@@ -144,8 +144,10 @@
     disponibilidade do servidor antes de rodar 50 processos!*
 
     ```bash
+    cd /raid/genevol/1kg/phase3/
+    
     for i in {1..22};
-    do ../scripts/run_vcf.py phase3_chr/ALL.chr$i.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz phase3_pops/ chr${i} 50;
+    do ./scripts/run_vcf.py data/phase3_chr/ALL.chr$i.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz data/phase3_pops/ data/chr${i} 50;
     done
     ```
 
