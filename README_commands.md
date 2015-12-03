@@ -173,7 +173,23 @@
 
     ```
     data/chrN/POP.frq.count
-    data/chrN/POP.log
+    data/chrN/POP.log.
     ```
 
 5. Anotação
+
+  1. Instalar [annovar](http://doc-openbio.readthedocs.org/projects/annovar/en/latest/)
+    
+  ```bash
+  cd /raid/genevol/1kg/phase3/
+  wget http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz
+  tar -xzvf annovar.latest.tar.gz
+  ```
+
+  2. Download de base de dados do refSeq para gene-based annotation
+  
+  ```bash
+  ./annovar/annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
+  ```
+
+
