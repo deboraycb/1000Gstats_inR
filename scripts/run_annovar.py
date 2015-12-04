@@ -5,14 +5,15 @@ import sys
 import os
 import subprocess
 
-if len(sys.argv) != 5:
-    print '''Use ./run_annovar.py ANNOVAR_DIR INDATA_DIR OUT_DIR NUMBER_OF_PROCESSES'''
+if len(sys.argv) != 6:
+    print '''Use ./run_annovar.py ANNOVAR_DIR DATABASE INDATA_DIR OUT_DIR NUMBER_OF_PROCESSES'''
     sys.exit()
 
 annovar_dir = sys.argv[1]
-data_dir = sys.argv[2]
-output_dir = sys.argv[3]
-procs_max = int(sys.argv[4])
+db_type = sys.argv[2]
+data_dir = sys.argv[3]
+output_dir = sys.argv[4]
+procs_max = int(sys.argv[5])
 
 # Create directory for the output
 if not os.path.isdir(output_dir):
@@ -32,6 +33,8 @@ for chn in range(1,23):
                "-out",
                out_path,
                "-build hg19",
+               "-dbtype",
+               db_type,
                input_path,
                annovar_dir + "humandb/"
                ]

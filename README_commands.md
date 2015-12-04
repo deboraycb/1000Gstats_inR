@@ -193,11 +193,16 @@
     tar -xzvf annovar.latest.tar.gz
     ```
 
-  2. Download de base de dados do refSeq para gene-based annotation
+  2. Download de base de dados para gene-based annotation
   
     ```bash
     cd annovar
+    # refSeq
     ./annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
+    # GENCODE
+    ./annotate_variation.pl -downdb -build hg19 seq humandb/hg19_seq/
+    ./annotate_variation.pl -downdb wgEncodeGencodeBasicV19 humandb/ -build hg19
+    ./retrieve_seq_from_fasta.pl -format genericGene -seqdir humandb/hg19_seq/ -outfile humandb/hg19_wgEncodeGencodeBasicV19Mrna.fa humandb/hg19_wgEncodeGencodeBasicV19.txt
     ```
 
   3. Preparar arquivos de entrada do annovar
@@ -208,9 +213,11 @@
     ```
 
   4. Rodar annovar nos arquivos gerados acima
+    
+    Para anotação do GENCODE, usar `wgEncodeGencodeBasicV19` no lugar de `refGene`
 
     ```bash
-    ./scripts/run_annovar.py annovar/ data/ data/annovar_output/ 22
+    ./scripts/run_annovar.py annovar/ refGene data/ data/annovar_output/ 22
     ```
 
   5. Fundir os dois arquivos de saída do annovar em um único arquivo
