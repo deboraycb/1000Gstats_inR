@@ -83,13 +83,14 @@
     --weir-fst-pop phase3_pops/popTSI.txt \
     --weir-fst-pop phase3_pops/popYRI.txt \
     --out chr${i}/overall;
+    bzip2 chr${i}/overall.weir.fst;
     done
     ```
 
     **OUTPUT:**
 
     ```
-    data/chrN/overall.weir.fst
+    data/chrN/overall.weir.fst.bz2
     data/chrN/overall.log
     ```
     
@@ -127,13 +128,14 @@
     --weir-fst-pop phase3_pops/popTSI.txt \
     --weir-fst-pop phase3_pops/popYRI.txt \
     --out chr${i}/overall_noadm;
+    bzip2 chr${i}/overall_noadm.weir.fst;
     done
     ```
 
     **OUTPUT:**
 
     ```
-    data/chrN/overall_noadm.weir.fst
+    data/chrN/overall_noadm.weir.fst.bz2
     data/chrN/overall_noadm.log
     ```
     
@@ -148,13 +150,14 @@
     
     for i in {1..22};
     do ./scripts/run_vcf.py data/phase3_chr/ALL.chr$i.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz data/phase3_pops/ data/chr${i} 50;
+    bzip2 data/chr${i}/*-*.weir.fst;
     done
     ```
 
     **OUTPUT:**
 
     ```
-    data/chrN/POP1-POP2.weir.fst
+    data/chrN/POP1-POP2.weir.fst.bz2
     data/chrN/POP1-POP2.log
     ```
 
@@ -167,12 +170,16 @@
     ```bash
     cd /raid/genevol/1kg/phase3/
     ./scripts/run_counts.py data/phase3_chr/ data/phase3_pops/ data/ 50
+    
+    for i in {1..22};
+    do bzip2 data/chr${i}/*.frq.count;
+    done
     ```
 
     **OUTPUT:**
 
     ```
-    data/chrN/POP.frq.count
+    data/chrN/POP.frq.count.bz2
     data/chrN/POP.log
     ```
 
@@ -196,14 +203,19 @@
   3. Preparar arquivos de entrada do annovar
 
     ```bash
+    cd /raid/genevol/1kg/phase3/
     ./scripts/annovar_input.py data/phase3_chr/ annovar/ data/ 22
     ```
 
   4. Rodar annovar nos arquivos gerados acima
 
     ```bash
-    ./scripts/run_annovar.py annovar/ data/ 22
+    ./scripts/run_annovar.py annovar/ data/ data/annovar_output/ 22
     ```
 
+  5. Fundir os dois arquivos de saída do annovar em um único arquivo
+  com anotação geral e exônica na mesma coluna
 
-
+    ```bash
+    ./scripts/merge_annovar_output.pl data/annovar_output/ data/annovar_output/mergeanno_chr
+    ```

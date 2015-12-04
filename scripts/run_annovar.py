@@ -6,16 +6,17 @@ import os
 import subprocess
 
 if len(sys.argv) != 5:
-    print '''Use ./run_annovar.py ANNOVAR_DIR IODATA_DIR NUMBER_OF_PROCESSES'''
+    print '''Use ./run_annovar.py ANNOVAR_DIR INDATA_DIR OUT_DIR NUMBER_OF_PROCESSES'''
     sys.exit()
 
 annovar_dir = sys.argv[1]
 data_dir = sys.argv[2]
-procs_max = int(sys.argv[3])
+output_dir = sys.argv[3]
+procs_max = int(sys.argv[4])
 
 # Create directory for the output
-if not os.path.isdir(data_dir):
-    os.mkdir(data_dir)
+if not os.path.isdir(output_dir):
+    os.mkdir(output_dir)
 
 procs = []
 
@@ -24,12 +25,8 @@ for chn in range(1,23):
     input_file = ch + ".avinput"
     input_path = data_dir + "/" + ch + input_file
 
-    # Create directory for the output
-    if not os.path.isdir(data_dir + "/" + ch):
-        os.mkdir(data_dir + "/" + ch)
-
     out_file = ch + "_annotated"
-    out_path = data_dir + "/" + ch + "/" + out_file
+    out_path = output_dir + "/" + out_file
 
     command = [annovar_dir + "annotate_variation.pl",
                "-out",
