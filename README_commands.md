@@ -173,7 +173,7 @@
 
     ```
     data/chrN/POP.frq.count
-    data/chrN/POP.log.
+    data/chrN/POP.log
     ```
 
 5. Anotação
@@ -189,7 +189,21 @@
   2. Download de base de dados do refSeq para gene-based annotation
   
   ```bash
-  ./annovar/annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
+  cd annovar
+  ./annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
   ```
+
+  3. Preparar arquivos de entrada do annovar
+
+  ```bash
+  ./scripts/annovar_input.py data/phase3_chr/ annovar/ data/ 22
+  ```
+
+  4. Rodar annovar nos arquivos gerados acima
+
+  ```bash
+  ./scripts/run_annovar.py annovar/ data/ 22
+  ```
+
 
 

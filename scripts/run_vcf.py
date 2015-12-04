@@ -54,7 +54,7 @@ for i, pop1 in enumerate(pops.keys()[:-1]):
 
                     finished_procs = []
                     for i,p in enumerate(procs):
-                        if p.poll() == 0:
+                        if p.poll() is not None:
                             finished_procs.append(i)
                     for i in finished_procs:
                         procs.pop(i)
