@@ -27,7 +27,7 @@ for chn in range(1,23):
     input_path = data_dir + "/" + ch + input_file
 
     out_file = ch + "_annotated"
-    out_path = output_dir + "/" + out_file
+    out_path = output_dir + "/" + db_type + "/" + out_file
 
     command = [annovar_dir + "annotate_variation.pl",
                "-out",

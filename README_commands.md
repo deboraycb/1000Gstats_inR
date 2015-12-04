@@ -223,6 +223,8 @@
   5. Fundir os dois arquivos de saída do annovar em um único arquivo
   com anotação geral e exônica na mesma coluna
 
+    Para anotação do GENCODE, usar `wgEncodeGencodeBasicV19` no lugar de `refGene`
+
     ```bash
-    ./scripts/merge_annovar_output.pl data/annovar_output/ data/annovar_output/mergeanno_chr
+    ./scripts/merge_annovar_output.pl data/annovar_output/refGene/ data/annovar_output/refGene/mergeanno_chr
     ```
