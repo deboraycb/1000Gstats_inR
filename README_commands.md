@@ -180,30 +180,30 @@
 
   1. Instalar [annovar](http://doc-openbio.readthedocs.org/projects/annovar/en/latest/)
     
-  ```bash
-  cd /raid/genevol/1kg/phase3/
-  wget http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz
-  tar -xzvf annovar.latest.tar.gz
-  ```
+    ```bash
+    cd /raid/genevol/1kg/phase3/
+    wget http://www.openbioinformatics.org/annovar/download/0wgxR2rIVP/annovar.latest.tar.gz
+    tar -xzvf annovar.latest.tar.gz
+    ```
 
   2. Download de base de dados do refSeq para gene-based annotation
   
-  ```bash
-  cd annovar
-  ./annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
-  ```
+    ```bash
+    cd annovar
+    ./annotate_variation.pl -downdb -buildver hg19 -webfrom annovar refGene humandb/
+    ```
 
   3. Preparar arquivos de entrada do annovar
 
-  ```bash
-  ./scripts/annovar_input.py data/phase3_chr/ annovar/ data/ 22
-  ```
+    ```bash
+    ./scripts/annovar_input.py data/phase3_chr/ annovar/ data/ 22
+    ```
 
   4. Rodar annovar nos arquivos gerados acima
 
-  ```bash
-  ./scripts/run_annovar.py annovar/ data/ 22
-  ```
+    ```bash
+    ./scripts/run_annovar.py annovar/ data/ 22
+    ```
 
 
 
