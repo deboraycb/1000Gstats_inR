@@ -150,7 +150,6 @@
     
     for i in {1..22};
     do ./scripts/run_vcf.py data/phase3_chr/ALL.chr$i.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz data/phase3_pops/ data/chr${i} 50;
-    bzip2 data/chr${i}/*-*.weir.fst;
     done
     ```
 
@@ -212,12 +211,25 @@
     ./scripts/annovar_input.py data/phase3_chr/ annovar/ data/ 22
     ```
 
+    **OUTPUT:**
+
+    ```
+    data/chrN/chrN.avinput
+    ```
+
   4. Rodar annovar nos arquivos gerados acima
-    
+
     Para anotação do GENCODE, usar `wgEncodeGencodeBasicV19` no lugar de `refGene`
 
     ```bash
     ./scripts/run_annovar.py annovar/ refGene data/ data/annovar_output/ 22
+    ```
+
+    **OUTPUT:**
+
+    ```
+    data/annovar_output/refGene/chrN_annotated.variant_function
+    data/annovar_output/refGene/chrN_annotated.exonic_variant_function
     ```
 
   5. Fundir os dois arquivos de saída do annovar em um único arquivo
@@ -227,4 +239,36 @@
 
     ```bash
     ./scripts/merge_annovar_output.pl data/annovar_output/refGene/ data/annovar_output/refGene/mergeanno_chr
+    ```
+
+    **OUTPUT:**
+
+    ```
+    data/annovar_output/refGene/mergeanno_chrN
+    ```
+
+  6. Lendo resultados no R, por cromossomo
+
+    ```bash
+    cd /raid/genevol/1kg/phase3/data/chr1/
+    for i in {1..22};
+    do cd ../chr${i};
+    Rscript ../../scripts/chr.table.R;
+    done
+    ```
+
+    **OUTPUT**
+    ```
+    ```
+
+  7. Juntando tabelas de R por cromossomo em uma só tabela e escrevendo em arquivo txt
+
+    ```bash
+    Rscript ./scripts/all.chr.table.R
+    ```
+
+  8. Exemplo: Definindo pedaços de interesse na tabela
+
+    ```R
+    mhc_indice <- which(all.chr.table$)
     ```

@@ -33,7 +33,7 @@ for i, pop1 in enumerate(pops.keys()[:-1]):
     for pop2 in pops.keys()[i+1:]:
         out_file = "{}-{}.weir.fst.bz2".format(pop1, pop2)
  	out_path = output_dir + "/" + out_file
-        command = "/home/debora/vcftools/src/cpp/vcftools --gzvcf " + genome + " --weir-fst-pop " + pops[pop1] + " --weir-fst-pop " + pops[pop2] + " --stdout | bzip > " + out_path
+        command = "/home/debora/vcftools/src/cpp/vcftools --gzvcf " + genome + " --weir-fst-pop " + pops[pop1] + " --weir-fst-pop " + pops[pop2] + " --stdout | bzip2 > " + out_path
 
         if not os.path.isfile(out_path + ".weir.fst"):
             procs.append(subprocess.Popen(command, shell = True))
