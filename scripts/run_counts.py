@@ -57,7 +57,7 @@ for ch in chs.keys():
                        out_path
 		       ]
 
-        if not os.path.isfile(out_path + ".count"):
+        if not os.path.isfile(out_path + ".frq.count"):
             procs.append(subprocess.Popen(vcf_command))
             if len(procs) == procs_max:
 	            # Wait for processes to finish

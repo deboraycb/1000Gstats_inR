@@ -247,28 +247,34 @@
     data/annovar_output/refGene/mergeanno_chrN
     ```
 
-  6. Lendo resultados no R, por cromossomo
+6. Lendo resultados no R, por cromossomo
 
-    ```bash
-    cd /raid/genevol/1kg/phase3/data/chr1/
-    for i in {1..22};
-    do cd ../chr${i};
-    Rscript ../../scripts/chr.table.R;
-    done
-    ```
+  ```bash
+  cd /raid/genevol/1kg/phase3/data/chr1/
+  for i in {1..22};
+  do cd ../chr${i};
+  Rscript ../../scripts/chr.table.R;
+  done
+  ```
 
-    **OUTPUT**
-    ```
-    ```
+  **OUTPUT**
+  ```
+  data/chrN/chrN.table.RData
+  ```
 
-  7. Juntando tabelas de R por cromossomo em uma só tabela e escrevendo em arquivo txt
+7. Juntando tabelas de R por cromossomo em uma só tabela e escrevendo em arquivo txt
 
-    ```bash
-    Rscript ./scripts/all.chr.table.R
-    ```
+  ```bash
+  Rscript ./scripts/all.chr.table.R
+  ```
 
-  8. Exemplo: Definindo pedaços de interesse na tabela
+  **OUTPUT**
+  ```bash
+  r_objects/all.chr.table.RData
+  ```
 
-    ```R
-    mhc_indice <- which(all.chr.table$)
-    ```
+8. Exemplo: Definindo pedaços de interesse na tabela
+
+  ```R
+  mhc_indice <- which(all.chr.table)
+  ```
