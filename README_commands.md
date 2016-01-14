@@ -239,12 +239,23 @@
 
     ```bash
     ./scripts/merge_annovar_output.pl data/annovar_output/refGene/ data/annovar_output/refGene/mergeanno_chr
+
+    # compressing intermediate annotation files
+    for i in {1..22};
+    do bzip2 data/chr${i}/chr${i}.avinput;
+    done
+    bzip2 data/annovar_output/refGene/*anno*;
+    bzip2 data/annovar_output/wgEncodeGencodeBasicV19/*anno*;
     ```
 
     **OUTPUT:**
 
     ```
-    data/annovar_output/refGene/mergeanno_chrN
+    data/annovar_output/refGene/mergeanno_chrN.bz2
+
+    data/chrN/chrN.avinput.bz2
+    data/annovar_output/refGene/chrN_annotated.variant_function.bz2
+    data/annovar_output/refGene/chrN_annotated.exonic_variant_function.bz2
     ```
 
 6. Lendo resultados no R, por cromossomo
