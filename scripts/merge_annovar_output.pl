@@ -75,7 +75,7 @@ foreach $chr(1 .. 22){ #loop pelos cromossomos
         while (<IN>){ #le o arquivo linha a linha
             chomp $_;
             # dá um match na 2a 5a e ultima coluna da linha...
-            if ($_ =~ /^.+?\t(.+?)\t.+?\t.+?\t(.+?)\t/){
+            if ($_ =~ /^.+?\t(.+?)\ .+?\t.+?\t.+?\t(.+?)\t/){
                 #...que sao respectivamente a anotacao, a posicao e o SNPsource
                 ($annotation, $position) = ($1,$2);
             }
@@ -100,7 +100,7 @@ foreach $chr(1 .. 22){ #loop pelos cromossomos
     # abre um novo (>) arquivo chamado $outfile com o numero do
     # cromossomo concatenado, que servirá de output
     open(out, ">$outfile"."$chr");
-    print "Writing chr $chr"."\n";
+    print "Writing chr $outfile"."$chr"."\n";
     #para cada $position do hash ordenado pelas keys
     #(keys em ordem numerica, e nao de caracter, por isso o {$a<=$b>})...
     foreach $position(sort {$a<=>$b} keys %snps){
