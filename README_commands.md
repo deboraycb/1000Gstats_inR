@@ -127,8 +127,8 @@
     --weir-fst-pop phase3_pops/popSTU.txt \
     --weir-fst-pop phase3_pops/popTSI.txt \
     --weir-fst-pop phase3_pops/popYRI.txt \
-    --out chr${i}/overall_noadm;
-    bzip2 chr${i}/overall_noadm.weir.fst;
+    --out chr${i}/noadmix_overall;
+    bzip2 chr${i}/noadmix_overall.weir.fst;
     done
     ```
 
@@ -287,5 +287,6 @@
 8. Exemplo: Definindo pedaços de interesse na tabela
 
   ```R
-  mhc_indice <- which(all.chr.table)
+  mhcext_indice <- which(with(all.chr.table, CHR==6 & POS>29570005 & POS<33377699))
+  all.chr.table[mhcext,]
   ```
