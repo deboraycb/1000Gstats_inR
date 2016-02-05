@@ -19,94 +19,18 @@
 #
 ######################################################################
 
-# 1. rbind das tabelas de todos os cromossomos
-
+cat("chr1")
 load("chr1/chr1.table.RData")
 all.chr.table<-chr.table
-save.image("all.chr.table.RData")
+save(all.chr.table, file="/raid/genevol/1kg/phase3/r_objects/all.chr.table.RData")
 
-load("chr2/chr2.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr3/chr3.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr4/chr4.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr5/chr5.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr6/chr6.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr7/chr7.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr8/chr8.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr9/chr9.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr10/chr10.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr11/chr11.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr12/chr12.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr13/chr13.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr14/chr14.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr15/chr15.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr16/chr16.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr17/chr17.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr18/chr18.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr19/chr19.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr20/chr20.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr21/chr21.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
-
-load("chr22/chr22.table.RData")
-all.chr.table<-rbind(all.chr.table,chr.table)
-save.image("all.chr.table.RData")
+for(i in 2:22){
+    cat("\t", "chr", i)
+    load(paste0("chr",i,"/chr",i,".table.RData"))
+    all.chr.table<-rbind(all.chr.table,chr.table)
+    if(i%/%5){
+        save(all.chr.table, file="/raid/genevol/1kg/phase3/r_objects/all.chr.table.RData")
+    }
+}
 
 save(all.chr.table, file="/raid/genevol/1kg/phase3/r_objects/all.chr.table.RData")
