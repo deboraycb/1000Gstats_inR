@@ -43,6 +43,6 @@ rodados, ver `../README_commands.md`*
 
     Arquivo de entrada do annovar
 
--   `chrN.table.RData`
+  - `chrN.table.RData`
 
     Workspace de R contendo o dataframe para esse cromossomo
