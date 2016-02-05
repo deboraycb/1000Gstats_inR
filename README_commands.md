@@ -276,7 +276,8 @@
 7. Juntando tabelas de R por cromossomo em uma só tabela e escrevendo em arquivo txt
 
   ```bash
-  Rscript ./scripts/all.chr.table.R
+  cd /raid/genevol/1kg/phase3/data
+  Rscript ../scripts/all.chr.table.R
   ```
 
   **OUTPUT**
