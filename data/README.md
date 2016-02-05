@@ -3,6 +3,11 @@
 *Para mais detalhes de como os scripts mencionados abaixo foram 
 rodados, ver `../README_commands.md`*
 
+- `integrated_call_samples_v3.20130502.ALL.panel`
+  
+  File containing info from 1000Genomes phase3 samples.
+  Downloaded by script `phase3_pops.R`
+
 - `phase3_chr/`
 
   Arquivos VCF zipados (.vcf.gz) para cada um dos **N** cromossomos,
