@@ -19,28 +19,28 @@ rodados, ver `../README_commands.md`*
   Um indivíduo por linha.
   - `popNAME.txt`
 
-- `chrN`
+- `chrN/`
 
   Arquivos de saída do vcftools e annovar, por cromossomo:
   
-  `POP.log` e `POP.frq.count.bz2`
-  
-  Contagem de alelos overall e por população
+    `POP.log` e `POP.frq.count.bz2`
 
-  `overall.log` e `overall.weir.fst.bz2`
-  `noadmix_overall.log` e `noadmix_overall.weir.fst.bz2`
-  `POP1-POP2.log` e `POP1-POP2.weir.fst.bz2`
-  
-  F~ST~ para cada SNP overall, overall sem populações miscigenadas
-  e entre pares de populações
-  
-  duas últimas colunas: numerador e denominador do F~ST~
-  (estimador de Weir & Cockerham)
+    Contagem de alelos overall e por população
 
-  `chrN.avinput.bz2`
-  
-  Arquivo de entrada do annovar
+    `overall.log` e `overall.weir.fst.bz2`
+    `noadmix_overall.log` e `noadmix_overall.weir.fst.bz2`
+    `POP1-POP2.log` e `POP1-POP2.weir.fst.bz2`
 
-  `chrN.table.RData`
+    Fst para cada SNP overall, overall sem populações miscigenadas
+    e entre pares de populações
 
-  Workspace de R contendo o dataframe para esse cromossomo
+    duas últimas colunas: numerador e denominador do Fst
+    (estimador de Weir & Cockerham)
+
+    `chrN.avinput.bz2`
+
+    Arquivo de entrada do annovar
+
+    `chrN.table.RData`
+
+    Workspace de R contendo o dataframe para esse cromossomo
