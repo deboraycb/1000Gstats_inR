@@ -19,6 +19,11 @@ rodados, ver `../README_commands.md`*
   Um indivíduo por linha.
   - `popNAME.txt`
 
+- `annovar_output/`
+
+  Arquivos de saída do anovar e arquivos de saída do script
+  `merge_annovar_output.pl`
+
 - `chrN/`
 
   Arquivos de saída do vcftools e annovar, por cromossomo:
