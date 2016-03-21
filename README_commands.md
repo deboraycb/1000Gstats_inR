@@ -238,7 +238,7 @@
     Para anotação do GENCODE, usar `wgEncodeGencodeBasicV19` no lugar de `refGene`
 
     ```bash
-    ./scripts/merge_annovar_output.pl data/annovar_output/refGene/ data/annovar_output/refGene/mergeanno_chr
+    ./scripts/merge_annovar_output.py data/annovar_output/refGene/ mergeanno
 
     # compressing intermediate annotation files
     for i in {1..22};
